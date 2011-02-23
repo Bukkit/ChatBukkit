@@ -7,8 +7,9 @@ description: >
              Basic chat functionality.
              This plugin is one of the default plugins shipped with Bukkit.
 commands:
-  clear:
-    description: Sends the target player a message
+  whois:
+    aliases: [who, whos]
+    description: Looks up a player, returning various details about them
     usage: |
-           /<command> <player> <message>
-           Example: /<command> Walrus I found your bukkit!
+           /<command> [player]
+           Example: /<command> Walrus
