@@ -23,7 +23,7 @@ public abstract class CommandHandler {
     }
 
     protected static Player getPlayer(CommandSender sender, String[] args, int index) {
-        if (args.length >= index) {
+        if (args.length > index) {
             List<Player> players = sender.getServer().matchPlayer(args[index]);
 
             if (players.isEmpty()) {

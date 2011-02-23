@@ -38,10 +38,8 @@ public class WhoisCommand extends CommandHandler {
             for (String key : keys) {
                 sender.sendMessage(key + ": " + report.getField(key));
             }
-        } else {
-            return true;
         }
-
-        return false;
+        
+        return true;
     }
 }
