@@ -1,6 +1,6 @@
 name: ChatBukkit
 main: com.dinnerbone.bukkit.chat.ChatBukkit
-version: 0.0.1
+version: 0.0.2
 website: http://www.bukkit.org
 author: The Bukkit Team
 description: >
@@ -13,3 +13,15 @@ commands:
     usage: |
            /<command> [player]
            Example: /<command> Walrus
+  msg:
+    aliases: [priv, tell]
+    description: Sends a player a message
+    usage: |
+           /<command> <player> <message>
+           Example: /<command> Dinosaur You're extinct! :(
+  reply:
+    aliases: [r]
+    description: Replies to the last received message
+    usage: |
+           /<command> <message>
+           Example: /<command> Oh no!
