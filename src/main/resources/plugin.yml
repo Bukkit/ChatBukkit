@@ -7,9 +7,9 @@ description: >
              Basic chat functionality.
              This plugin is one of the default plugins shipped with Bukkit.
 commands:
-  whois:
-    aliases: [who, whos]
-    description: Looks up a player, returning various details about them
+  who:
+    aliases: [whois, whos, player, players, listplayers]
+    description: Looks up a player, returning various details about them. If no player is specified, it lists all available players.
     usage: |
            /<command> [player]
            Example: /<command> Walrus

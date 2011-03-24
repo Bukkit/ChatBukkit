@@ -1,7 +1,7 @@
 
 package com.dinnerbone.bukkit.chat;
 
-import com.dinnerbone.bukkit.chat.commands.WhoisCommand;
+import com.dinnerbone.bukkit.chat.commands.WhoCommand;
 import java.util.HashMap;
 import java.util.Map;
 import org.bukkit.command.Command;
@@ -23,7 +23,7 @@ public class ChatBukkit extends JavaPlugin {
         PluginDescriptionFile pdfFile = this.getDescription();
         System.out.println( pdfFile.getFullName() + " is enabled!" );
 
-        commands.put("whois", new WhoisCommand(this));
+        commands.put("who", new WhoCommand(this));
     }
     
     @Override
