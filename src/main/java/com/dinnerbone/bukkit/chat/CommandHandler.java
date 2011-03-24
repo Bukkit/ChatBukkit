@@ -40,4 +40,18 @@ public abstract class CommandHandler {
             }
         }
     }
+
+    protected static String recompileMessage(String[] args, int start, int end) {
+        if (start > args.length) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        String result = args[start];
+
+        for (int i = start + 1; i <= end; i++) {
+            result += " " + args[i];
+        }
+
+        return result;
+    }
 }
