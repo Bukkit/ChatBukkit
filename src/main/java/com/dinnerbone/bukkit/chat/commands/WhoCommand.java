@@ -5,6 +5,7 @@ import com.dinnerbone.bukkit.chat.CommandHandler;
 import com.dinnerbone.bukkit.chat.events.WhoisRequestEvent;
 import java.util.Set;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -14,7 +15,7 @@ public class WhoCommand extends CommandHandler {
     }
 
     @Override
-    public boolean perform(CommandSender sender, String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
             PerformPlayerList(sender, args);
             return true;

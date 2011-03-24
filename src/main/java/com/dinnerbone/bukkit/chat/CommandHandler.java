@@ -1,17 +1,19 @@
 package com.dinnerbone.bukkit.chat;
 
 import java.util.List;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public abstract class CommandHandler {
+public abstract class CommandHandler implements CommandExecutor {
     protected final ChatBukkit plugin;
 
     public CommandHandler(ChatBukkit plugin) {
         this.plugin = plugin;
     }
 
-    public abstract boolean perform(CommandSender sender, String[] args);
+    public abstract boolean onCommand(CommandSender sender, Command command, String label, String[] args);
     
     protected static boolean anonymousCheck(CommandSender sender) {
         if (!(sender instanceof Player)) {
