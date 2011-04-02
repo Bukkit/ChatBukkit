@@ -31,11 +31,11 @@ public class ReplyCommand extends CommandHandler {
 
             // TODO: This should use an event, but we need some internal changes to support that fully.
 
-            if (sender instanceof Player) {
+            if (target instanceof Player) {
                 name = ((Player)sender).getDisplayName();
             }
             
-            target.sendMessage(String.format("[%s]->[you]: %s", name, message));
+            target.sendMessage(String.format("[%s]->[you]: %s", player.getDisplayName(), message));
             sender.sendMessage(String.format("[you]->[%s]: %s", name, message));
         }
 

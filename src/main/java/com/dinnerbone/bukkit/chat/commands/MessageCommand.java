@@ -35,7 +35,7 @@ public class MessageCommand extends CommandHandler {
             }
 
             target.sendMessage(String.format("[%s]->[you]: %s", name, message));
-            sender.sendMessage(String.format("[you]->[%s]: %s", name, message));
+            sender.sendMessage(String.format("[you]->[%s]: %s", target.getDisplayName(), message));
 
             lastMessages.put(target, sender);
         }
