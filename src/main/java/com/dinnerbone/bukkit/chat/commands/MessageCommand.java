@@ -5,6 +5,7 @@ import com.dinnerbone.bukkit.chat.ChatBukkit;
 import com.dinnerbone.bukkit.chat.CommandHandler;
 import java.util.HashMap;
 import java.util.Map;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -20,6 +21,11 @@ public class MessageCommand extends CommandHandler {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length < 2) {
             return false;
+        }
+
+        if (!sender.hasPermission("chatbukkit.msg")) {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to send private messages");
+            return true;
         }
 
         Player target = getPlayer(sender, args, 0);

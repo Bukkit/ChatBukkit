@@ -1,6 +1,6 @@
 name: ChatBukkit
 main: com.dinnerbone.bukkit.chat.ChatBukkit
-version: 0.0.2
+version: 1.0.0
 website: http://www.bukkit.org
 author: The Bukkit Team
 description: >
@@ -25,3 +25,22 @@ commands:
     usage: |
            /<command> <message>
            Example: /<command> Oh no!
+permissions:
+  chatbukkit.msg:
+    description: Allows the player to send messages to other players
+    default: true
+  chatbukkit.who.list:
+    description: Allows the player to view who's online
+  chatbukkit.who.whois:
+    description: Allows the player to lookup another player's information
+  chatbukkit.who:
+    description: Allows the player to view who's online and their details
+    default: true
+    children:
+      chatbukkit.who.list: true
+      chatbukkit.who.whois: true
+  chatbukkit.*:
+    description: Gives all abilities in Chatbukkit
+    children:
+      chatbukkit.who: true
+      chatbukkit.msg: true

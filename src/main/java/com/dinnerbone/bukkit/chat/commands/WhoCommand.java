@@ -17,9 +17,19 @@ public class WhoCommand extends CommandHandler {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
+            if (!sender.hasPermission("chatbukkit.who.list")) {
+                sender.sendMessage(ChatColor.RED + "You do not have permission to view the online players");
+                return true;
+            }
+
             PerformPlayerList(sender, args);
             return true;
         } else if (args.length == 1) {
+            if (!sender.hasPermission("chatbukkit.who.whois")) {
+                sender.sendMessage(ChatColor.RED + "You do not have permission to view their details");
+                return true;
+            }
+
             PerformWhois(sender, args);
             return true;
         }
