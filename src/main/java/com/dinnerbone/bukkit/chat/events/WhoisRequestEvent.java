@@ -5,24 +5,25 @@ import java.util.Map;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+import org.bukkit.event.HandlerList;
 
 /**
  * Thrown when someone requests a WHOIS on a player
  */
 public class WhoisRequestEvent extends Event {
+    private static final HandlerList handlers = new HandlerList();
     private final CommandSender sender;
     private final Player player;
     private final Map<String, String> result = new HashMap<String, String>();
 
     public WhoisRequestEvent(CommandSender sender, Player player) {
-        super("WHOIS_REQUEST");
         this.sender = sender;
         this.player = player;
     }
 
     /**
      * Gets the target player to display details about
-     * 
+     *
      * @return Player target of this event
      */
     public Player getPlayer() {
@@ -70,5 +71,10 @@ public class WhoisRequestEvent extends Event {
      */
     public Map<String, String> getFields() {
         return result;
+    }
+
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
     }
 }
