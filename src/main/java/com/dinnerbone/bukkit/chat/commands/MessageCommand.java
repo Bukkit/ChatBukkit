@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class MessageCommand extends CommandHandler {
-    private Map<Player, CommandSender> lastMessages = new HashMap<Player, CommandSender>();
+    private Map<String, CommandSender> lastMessages = new HashMap<String, CommandSender>();
 
     public MessageCommand(ChatBukkit plugin) {
         super(plugin);
@@ -42,13 +42,27 @@ public class MessageCommand extends CommandHandler {
             target.sendMessage(String.format("[%s]->[you]: %s", name, message));
             sender.sendMessage(String.format("[you]->[%s]: %s", target.getDisplayName(), message));
 
-            lastMessages.put(target, sender);
+            lastMessages.put(target.getName(), sender);
         }
 
         return true;
     }
 
-    public CommandSender getLastSender(Player player) {
-        return lastMessages.get(player);
+    public CommandSender getLastSender(CommandSender target) {
+        CommandSender lastSender = null;
+
+        if (target != null) {
+            String senderName = target.getName();
+            lastSender = lastMessages.get(senderName);
+
+            if (lastSender instanceof Player) {
+                if (!((Player) lastSender).isValid()) {
+                    lastSender = plugin.getServer().getPlayerExact(lastSender.getName());
+                    lastMessages.put(target.getName(), lastSender);
+                }
+            }
+        }
+
+        return lastSender;
     }
 }
