@@ -1,4 +1,3 @@
-
 package com.dinnerbone.bukkit.chat.commands;
 
 import com.dinnerbone.bukkit.chat.ChatBukkit;
@@ -25,7 +24,7 @@ public class ReplyCommand extends CommandHandler {
             return true;
         }
 
-        Player player = (Player)sender;
+        Player player = (Player) sender;
         CommandSender target = getTarget(player);
 
         if (target == null) {
@@ -37,9 +36,9 @@ public class ReplyCommand extends CommandHandler {
             // TODO: This should use an event, but we need some internal changes to support that fully.
 
             if (target instanceof Player) {
-                name = ((Player)target).getDisplayName();
+                name = ((Player) target).getDisplayName();
             }
-            
+
             target.sendMessage(String.format("[%s]->[you]: %s", player.getDisplayName(), message));
             sender.sendMessage(String.format("[you]->[%s]: %s", name, message));
         }
@@ -51,7 +50,7 @@ public class ReplyCommand extends CommandHandler {
         PluginCommand command = plugin.getCommand("msg");
 
         if ((command != null) && (command.getExecutor() instanceof MessageCommand)) {
-            return ((MessageCommand)command.getExecutor()).getLastSender(player);
+            return ((MessageCommand) command.getExecutor()).getLastSender(player);
         } else {
             return null;
         }

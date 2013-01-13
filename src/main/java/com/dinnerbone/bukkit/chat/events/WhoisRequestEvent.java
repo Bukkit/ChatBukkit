@@ -40,8 +40,8 @@ public class WhoisRequestEvent extends Event {
     }
 
     /**
-     * Sets the specified field of this report to the given value.
-     * Use null if you wish to remove that field.
+     * Sets the specified field of this report to the given value. Use null if
+     * you wish to remove that field.
      *
      * @param field Name of the field to set
      * @param value New value of the field (or null to remove)

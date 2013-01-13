@@ -1,4 +1,3 @@
-
 package com.dinnerbone.bukkit.chat;
 
 import com.dinnerbone.bukkit.chat.commands.MessageCommand;
@@ -12,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author Dinnerbone
  */
 public class ChatBukkit extends JavaPlugin {
+    @Override
     public void onEnable() {
         getCommand("who").setExecutor(new WhoCommand(this));
         getCommand("msg").setExecutor(new MessageCommand(this));

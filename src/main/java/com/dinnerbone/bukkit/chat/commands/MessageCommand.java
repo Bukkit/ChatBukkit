@@ -1,4 +1,3 @@
-
 package com.dinnerbone.bukkit.chat.commands;
 
 import com.dinnerbone.bukkit.chat.ChatBukkit;
@@ -12,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class MessageCommand extends CommandHandler {
     private Map<Player, CommandSender> lastMessages = new HashMap<Player, CommandSender>();
-    
+
     public MessageCommand(ChatBukkit plugin) {
         super(plugin);
     }
@@ -37,7 +36,7 @@ public class MessageCommand extends CommandHandler {
             // TODO: This should use an event, but we need some internal changes to support that fully.
 
             if (sender instanceof Player) {
-                name = ((Player)sender).getDisplayName();
+                name = ((Player) sender).getDisplayName();
             }
 
             target.sendMessage(String.format("[%s]->[you]: %s", name, message));

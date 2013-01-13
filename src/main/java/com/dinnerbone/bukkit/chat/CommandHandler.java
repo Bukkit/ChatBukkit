@@ -14,7 +14,7 @@ public abstract class CommandHandler implements CommandExecutor {
     }
 
     public abstract boolean onCommand(CommandSender sender, Command command, String label, String[] args);
-    
+
     protected static boolean anonymousCheck(CommandSender sender) {
         if (!(sender instanceof Player)) {
             sender.sendMessage("Cannot execute that command, I don't know who you are!");
@@ -38,7 +38,7 @@ public abstract class CommandHandler implements CommandExecutor {
             if (anonymousCheck(sender)) {
                 return null;
             } else {
-                return (Player)sender;
+                return (Player) sender;
             }
         }
     }

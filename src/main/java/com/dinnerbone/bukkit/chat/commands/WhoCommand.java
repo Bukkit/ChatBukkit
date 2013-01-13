@@ -68,7 +68,9 @@ public class WhoCommand extends CommandHandler {
             String name = player.getDisplayName();
 
             if (name.length() > 0) {
-                if (result.length() > 0) result += ", ";
+                if (result.length() > 0) {
+                    result += ", ";
+                }
                 result += name;
                 count++;
             }
