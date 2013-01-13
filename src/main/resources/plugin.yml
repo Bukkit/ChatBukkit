@@ -1,6 +1,6 @@
-name: ChatBukkit
+name: ${name}
 main: com.dinnerbone.bukkit.chat.ChatBukkit
-version: 1.0.0
+version: ${version}
 website: http://www.bukkit.org
 author: The Bukkit Team
 description: >
