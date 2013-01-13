@@ -27,22 +27,33 @@ public class MessageCommand extends CommandHandler {
             return true;
         }
 
-        Player target = getPlayer(sender, args, 0);
+        CommandSender target;
+
+        if (args[0].equalsIgnoreCase("CONSOLE")) {
+            target = plugin.getServer().getConsoleSender();
+        } else {
+            target = getPlayer(sender, args, 0);
+        }
 
         if (target != null) {
             String message = recompileMessage(args, 1, args.length - 1);
-            String name = "Anonymous";
+            String senderName = sender.getName();
+            String targetName = target.getName();
 
             // TODO: This should use an event, but we need some internal changes to support that fully.
 
             if (sender instanceof Player) {
-                name = ((Player) sender).getDisplayName();
+                senderName = ((Player) sender).getDisplayName();
             }
 
-            target.sendMessage(String.format("[%s]->[you]: %s", name, message));
-            sender.sendMessage(String.format("[you]->[%s]: %s", target.getDisplayName(), message));
+            if (target instanceof Player) {
+                targetName = ((Player) target).getDisplayName();
+            }
 
-            lastMessages.put(target.getName(), sender);
+            target.sendMessage(String.format("[%s]->[you]: %s", senderName, message));
+            sender.sendMessage(String.format("[you]->[%s]: %s", targetName, message));
+
+            lastMessages.put(targetName, sender);
         }
 
         return true;

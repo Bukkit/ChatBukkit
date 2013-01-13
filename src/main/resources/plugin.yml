@@ -17,7 +17,7 @@ commands:
     aliases: [priv, tell]
     description: Sends a player a message
     usage: |
-           /<command> <player> <message>
+           /<command> <player|console> <message>
            Example: /<command> Dinosaur You're extinct! :(
   reply:
     aliases: [r]
